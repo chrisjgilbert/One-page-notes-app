@@ -2,15 +2,8 @@
 
   function Note(text) {
     this.text = text;
-    this.shortened = this.shortenNote();
+    this.shortenedText = this.text.substring(0, 20);
   }
-
-  Note.prototype = {
-    shortenNote: function() {
-      console.log(this.text);
-      return this.text.substring(0, 20);
-    }
-  };
 
   exports.Note = Note;
 })(this);
