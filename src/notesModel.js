@@ -1,25 +1,22 @@
 (function(exports) {
 
-  var note;
   var noteColors = ['red', 'blue', 'yellow', 'green' ];
 
-  function trimNote() {
-    note.substring(0,20);
+  function Note(text) {
+    this.text = text;
   }
 
-  function randNoteColor() {
+  Note.prototype.randNoteColor = function() {
     return noteColors[Math.floor(Math.random() * noteColors.length)];
   }
 
-  function saveNote(text) {
-    note = text;
+  Note.prototype.getNote = function() {
+    return this.text;
   }
 
-  function getNote() {
-    return note;
+  Note.prototype.trimNote = function() {
+    this.text.substring(0,20);
   }
 
-  exports.randNoteColor = randNoteColor;
-  exports.saveNote = saveNote;
-  exports.getNote = getNote;
+  exports.Note = Note;
 })(this);

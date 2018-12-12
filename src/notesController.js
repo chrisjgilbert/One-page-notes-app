@@ -1,22 +1,24 @@
 (function(exports) {
 
-  function renderApp() {
-   document.getElementById("textArea").innerHTML = renderTextArea();
-   document.getElementById("noteArea").innerHTML = renderNoteArea();
+  function NotesController(note, notesView) {
+    this.note = note;
+    this.notesView = notesView;
+    this._listenToSubmit();
   }
 
-  function listenToSubmit() {
-    document.getElementById("submit").addEventListener("click", function(){
-      var note = document.getElementById('text').value;
-      saveNote(note);
-      showNote();
+  NotesController.prototype._listenToSubmit = function() {
+    var self = this;
+    window.addEventListener('submit', function(event) {
+      event.preventDefault();
+      var note = new self.note(event.target[0].value)
+      self.notesView.add(note)
+      self.updateDOM();
     })
   }
 
-  function showNote() {
-    document.getElementById("notes").innerHTML += renderNote();
+  NotesController.prototype.updateDOM = function() {
+    document.getElementById("app").innerHTML = this.notesView.renderApp();
   }
 
-  exports.renderApp = renderApp;
-  exports.listenToSubmit = listenToSubmit;
+  exports.NotesController = NotesController;
 })(this);

@@ -1,6 +1,8 @@
-window.addEventListener("load", function(event) {
+window.addEventListener("load", function() {
 
-  renderApp();
-  listenToSubmit();
+  var note = Note
+  var notesView = new NotesView();
+  var controller = new NotesController(note, notesView);
 
-});
+  controller.updateDOM();
+})
