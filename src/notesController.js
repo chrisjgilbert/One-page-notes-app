@@ -1,3 +1,5 @@
+'use strict';
+
 (function(exports) {
 
   function NotesController(note, notesView, element, app) {
