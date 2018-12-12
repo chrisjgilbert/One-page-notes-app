@@ -5,20 +5,23 @@
     this.notes = [];
   }
 
-  NotesView.prototype.add = function(note) {
-    this.notes.push(note);
-  }
+  NotesView.prototype = {
+    add: function(note) {
+      this.notes.push(note);
+    },
 
-  NotesView.prototype.renderApp = function() {
-    return [
-      "<form>",
-        "<input id='text' type='text'></input>",
-        "<input type='submit'></input>",
-      "</form>",
-      this.notes.map(function(note) {
-        return "<p style=color:" + note.color + ">"+ note.text + "</p>"
-      }).join("")
-    ].join("")
+    renderApp: function() {
+      return [
+        "<h1>Notes APP</h1>",
+        "<form>",
+          "<input id='text' type='text'></input>",
+          "<input type='submit'></input>",
+        "</form>",
+        this.notes.map(function(note) {
+          return "<p>"+ note.text + "</p>"
+        }).join("")
+      ].join("")
+    }
   }
 
   exports.NotesView = NotesView;

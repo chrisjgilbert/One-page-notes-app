@@ -1,14 +1,15 @@
 (function(exports) {
 
-  function NotesController(note, notesView) {
+  function NotesController(note, notesView, element) {
     this.note = note;
     this.notesView = notesView;
-    this._listenToSubmit();
+    this.element = element;
+    this._listenToElement();
   }
 
-  NotesController.prototype._listenToSubmit = function() {
+  NotesController.prototype._listenToElement = function() {
     var self = this;
-    window.addEventListener('submit', function(event) {
+    window.addEventListener(this.element, function(event) {
       event.preventDefault();
       var note = new self.note(event.target[0].value)
       self.notesView.add(note)
