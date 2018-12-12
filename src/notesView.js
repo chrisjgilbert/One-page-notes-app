@@ -6,19 +6,19 @@
 
   var noteArea = '<p id="notes">Notes:</p>';
 
-  function displayTextArea() {
+  function renderTextArea() {
     return textArea;
   }
 
-  function displayNoteArea() {
+  function renderNoteArea() {
     return noteArea;
   }
 
-  function displayNote() {
+  function renderNote() {
     return "<p style=color:" + randNoteColor() + ">"+ getNote() +"</p>";
   }
 
-  exports.displayTextArea = displayTextArea;
-  exports.displayNoteArea = displayNoteArea;
-  exports.displayNote = displayNote;
+  exports.renderTextArea = renderTextArea;
+  exports.renderNoteArea = renderNoteArea;
+  exports.renderNote = renderNote;
 })(this);
