@@ -2,8 +2,7 @@
 
 (function(exports) {
 
-  function NotesView(note) {
-    this.note = note;
+  function NotesView() {
     this.notes = [];
   }
 
