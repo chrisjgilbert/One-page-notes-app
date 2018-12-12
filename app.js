@@ -5,10 +5,12 @@
 
       var app = "app";
       var element = "submit";
+      var note = Note;
+      var notesView = new NotesView();
 
       var controller = new NotesController(
-        Note,
-        new NotesView,
+        note,
+        notesView,
         element,
         app
       );
